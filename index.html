@@ -279,7 +279,7 @@
                         <i class="fa-solid fa-temperature-half"></i>
                     </div>
                     <div style="padding: 10px;"></div>
-                    <p class="head-tile">24°</p>
+                    <p class="head-tile" id="temp">24°</p>
                     <div style="padding: 10px;"></div>
                     <p class="mid-tile">TEMPLATE</p>
                 </div>
@@ -288,7 +288,7 @@
                         <i class="fa-solid fa-wheelchair-move"></i>
                     </div>
                     <div style="padding: 10px;"></div>
-                    <p class="head-tile">873</p>
+                    <p class="head-tile" id="mleadge">873</p>
                     <div style="padding: 10px;"></div>
                     <p class="mid-tile">MLEADGE</p>
                 </div>
@@ -297,7 +297,7 @@
                         <i class="fa-solid fa-bolt"></i>
                     </div>
                     <div style="padding: 10px;"></div>
-                    <p class="head-tile">94%</p>
+                    <p class="head-tile" id="battery">94%</p>
                     <div style="padding: 10px;"></div>
                     <p class="mid-tile">BATTERY</p>
                 </div>
@@ -871,4 +871,26 @@
             </div>
         </div>
     </div>
+    <script>
+        function animateNumbers(elementId, maxValue) {
+            let currentValue=1;
+            const element=document.getElementById(elementId);
+
+            setInterval(()=> {
+                    element.textContent=currentValue;
+                    currentValue++;
+
+                    if (currentValue > maxValue) {
+                        currentValue=1;
+                    }
+                }
+
+                , 100); // 100ms mỗi lần cập nhật
+        }
+
+        // Gọi hàm cho các số
+        animateNumbers("temp", 99);
+        animateNumbers("mleadge", 99);
+        animateNumbers("battery", 99);
+    </script>
 </body>
